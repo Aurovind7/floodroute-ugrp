@@ -1,0 +1,366 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "name": {
+      "type": "string"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "directed": {
+      "type": "boolean"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "transit_safe": {
+            "type": "boolean"
+          },
+          "wait_safe": {
+            "type": "boolean"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "transit_safe",
+          "wait_safe"
+        ]
+      }
+    },
+    "roads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normal_time": {
+            "type": "number",
+            "minimum": 0
+          },
+          "current_time": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "closed": {
+            "type": "boolean"
+          },
+          "safe": {
+            "type": "boolean"
+          },
+          "escape_verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "normal_time",
+          "current_time"
+        ]
+      }
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "node": {
+            "type": "string",
+            "minLength": 1
+          },
+          "demand": {
+            "type": "number",
+            "minimum": 0
+          },
+          "priority": {
+            "type": "number",
+            "minimum": 0
+          },
+          "dwell": {
+            "type": "number",
+            "minimum": 0
+          },
+          "accessible": {
+            "type": "boolean"
+          },
+          "candidate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "node"
+        ]
+      }
+    },
+    "original_route": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "terminal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "theta": {
+      "type": "number",
+      "minimum": 1
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "T_ref": {
+          "type": "number",
+          "minimum": 0
+        },
+        "T_soft": {
+          "type": "number",
+          "minimum": 0
+        },
+        "T_max": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lambda_ref": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lambda_soft": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lambda_max": {
+          "type": "number",
+          "minimum": 0
+        },
+        "kappa": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "T_ref",
+        "T_soft",
+        "T_max",
+        "lambda_ref",
+        "lambda_soft",
+        "lambda_max",
+        "kappa"
+      ]
+    },
+    "candidate_filter": {
+      "type": "object",
+      "properties": {
+        "allowed_stop_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_normal_minutes_from_original": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": []
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "current": {
+          "type": "string",
+          "minLength": 1
+        },
+        "elapsed": {
+          "type": "number",
+          "minimum": 0
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "move"
+                  },
+                  "road": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "from": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "to": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minutes": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "terminal_escape": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "road",
+                  "from",
+                  "to",
+                  "minutes"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "service"
+                  },
+                  "stop": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "node": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minutes": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "demand": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "score": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "kind",
+                  "stop",
+                  "node",
+                  "minutes",
+                  "demand",
+                  "score"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "wait"
+                  },
+                  "node": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minutes": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "kind",
+                  "node",
+                  "minutes"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "origin",
+        "current",
+        "elapsed",
+        "history"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "directed",
+    "nodes",
+    "roads",
+    "stops",
+    "original_route",
+    "terminal",
+    "endpoints",
+    "parameters",
+    "state"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Flood routing snapshot version 2",
+  "description": "Cross references, ordering thresholds and history consistency are additionally checked by floodroute.validate."
+}
