@@ -1,0 +1,116 @@
+{
+  "schema_version": 2,
+  "name": "Synthetic hand check with higher clinic priority",
+  "synthetic": true,
+  "directed": true,
+  "nodes": [
+    {
+      "id": "origin",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "clinic",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "finish",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 2,
+      "y": 0
+    }
+  ],
+  "roads": [
+    {
+      "id": "direct",
+      "from": "origin",
+      "to": "finish",
+      "normal_time": 4,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "out",
+      "from": "origin",
+      "to": "clinic",
+      "normal_time": 1.5,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "back",
+      "from": "clinic",
+      "to": "finish",
+      "normal_time": 1.5,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    }
+  ],
+  "stops": [
+    {
+      "id": "origin_stop",
+      "node": "origin",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "clinic_stop",
+      "node": "clinic",
+      "demand": 5,
+      "priority": 3,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "finish_stop",
+      "node": "finish",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    }
+  ],
+  "original_route": [
+    "origin_stop",
+    "clinic_stop",
+    "finish_stop"
+  ],
+  "terminal": "finish",
+  "endpoints": [
+    "finish"
+  ],
+  "theta": 1.5,
+  "parameters": {
+    "T_ref": 4,
+    "T_soft": 10,
+    "T_max": 12,
+    "lambda_ref": 2,
+    "lambda_soft": 0,
+    "lambda_max": 0,
+    "kappa": 6
+  },
+  "candidate_filter": {},
+  "state": {
+    "origin": "origin",
+    "current": "origin",
+    "elapsed": 0,
+    "history": []
+  }
+}

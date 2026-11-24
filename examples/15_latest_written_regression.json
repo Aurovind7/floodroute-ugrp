@@ -1,0 +1,342 @@
+{
+  "schema_version": 2,
+  "name": "Synthetic regression of 26 October eight stop example",
+  "synthetic": true,
+  "directed": true,
+  "nodes": [
+    {
+      "id": "A",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "B",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "C",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "D",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "E",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "F",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "G",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "H",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "X",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "Y",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "Z",
+      "transit_safe": true,
+      "wait_safe": true
+    },
+    {
+      "id": "W",
+      "transit_safe": true,
+      "wait_safe": true
+    }
+  ],
+  "stops": [
+    {
+      "id": "A",
+      "node": "A",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "B",
+      "node": "B",
+      "demand": 25,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "C",
+      "node": "C",
+      "demand": 40,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "D",
+      "node": "D",
+      "demand": 20,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "E",
+      "node": "E",
+      "demand": 100,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "F",
+      "node": "F",
+      "demand": 50,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "G",
+      "node": "G",
+      "demand": 30,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "H",
+      "node": "H",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    }
+  ],
+  "roads": [
+    {
+      "id": "road_0",
+      "from": "A",
+      "to": "B",
+      "normal_time": 4,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_1",
+      "from": "B",
+      "to": "C",
+      "normal_time": 3,
+      "current_time": 6,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_2",
+      "from": "C",
+      "to": "D",
+      "normal_time": 2.5,
+      "current_time": 5,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_3",
+      "from": "D",
+      "to": "E",
+      "normal_time": 6,
+      "current_time": 12,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_4",
+      "from": "E",
+      "to": "F",
+      "normal_time": 6,
+      "current_time": 12,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_5",
+      "from": "F",
+      "to": "G",
+      "normal_time": 3,
+      "current_time": 6,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_6",
+      "from": "G",
+      "to": "H",
+      "normal_time": 4,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_7",
+      "from": "A",
+      "to": "X",
+      "normal_time": 2,
+      "current_time": 2,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_8",
+      "from": "X",
+      "to": "C",
+      "normal_time": 3,
+      "current_time": 3,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_9",
+      "from": "B",
+      "to": "Y",
+      "normal_time": 3,
+      "current_time": 3,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_10",
+      "from": "Y",
+      "to": "D",
+      "normal_time": 4,
+      "current_time": 4,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_11",
+      "from": "C",
+      "to": "E",
+      "normal_time": 8,
+      "current_time": 14,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_12",
+      "from": "D",
+      "to": "Z",
+      "normal_time": 3,
+      "current_time": 3,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_13",
+      "from": "Z",
+      "to": "F",
+      "normal_time": 3,
+      "current_time": 3,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_14",
+      "from": "F",
+      "to": "W",
+      "normal_time": 2,
+      "current_time": 2,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "road_15",
+      "from": "W",
+      "to": "H",
+      "normal_time": 3,
+      "current_time": 3,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    }
+  ],
+  "original_route": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "terminal": "H",
+  "endpoints": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "candidate_filter": {},
+  "theta": 1.5,
+  "parameters": {
+    "T_ref": 34.5,
+    "T_soft": 39,
+    "T_max": 43,
+    "lambda_ref": 2,
+    "lambda_soft": 4,
+    "lambda_max": 8,
+    "kappa": 100
+  },
+  "state": {
+    "origin": "A",
+    "current": "A",
+    "elapsed": 0,
+    "history": []
+  }
+}
