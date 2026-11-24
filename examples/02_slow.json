@@ -1,0 +1,214 @@
+{
+  "schema_version": 2,
+  "name": "Synthetic slower roads without closures",
+  "synthetic": true,
+  "directed": true,
+  "nodes": [
+    {
+      "id": "depot",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "school",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "id": "hospital",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 4,
+      "y": 0
+    },
+    {
+      "id": "terminal",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 6,
+      "y": 0
+    },
+    {
+      "id": "junction",
+      "transit_safe": true,
+      "wait_safe": false,
+      "x": 3,
+      "y": 1
+    },
+    {
+      "id": "market",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 2,
+      "y": -1
+    },
+    {
+      "id": "layby",
+      "transit_safe": true,
+      "wait_safe": true,
+      "x": 5,
+      "y": 1
+    }
+  ],
+  "stops": [
+    {
+      "id": "start",
+      "node": "depot",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "school_stop",
+      "node": "school",
+      "demand": 12,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "hospital_stop",
+      "node": "hospital",
+      "demand": 10,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "end",
+      "node": "terminal",
+      "demand": 0,
+      "priority": 1,
+      "dwell": 0,
+      "accessible": true,
+      "candidate": true
+    },
+    {
+      "id": "market_stop",
+      "node": "market",
+      "demand": 5,
+      "priority": 1,
+      "dwell": 1,
+      "accessible": true,
+      "candidate": true
+    }
+  ],
+  "roads": [
+    {
+      "id": "main1",
+      "from": "depot",
+      "to": "school",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "main2",
+      "from": "school",
+      "to": "hospital",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "main3",
+      "from": "hospital",
+      "to": "terminal",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "detour1",
+      "from": "school",
+      "to": "junction",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "detour2",
+      "from": "junction",
+      "to": "hospital",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "alternative1",
+      "from": "depot",
+      "to": "market",
+      "normal_time": 2,
+      "current_time": 3.0,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "alternative2",
+      "from": "market",
+      "to": "hospital",
+      "normal_time": 3,
+      "current_time": 4.5,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    },
+    {
+      "id": "safe_exit",
+      "from": "hospital",
+      "to": "layby",
+      "normal_time": 1,
+      "current_time": 1.5,
+      "closed": false,
+      "safe": true,
+      "escape_verified": false
+    }
+  ],
+  "original_route": [
+    "start",
+    "school_stop",
+    "hospital_stop",
+    "end"
+  ],
+  "terminal": "terminal",
+  "endpoints": [
+    "terminal",
+    "layby"
+  ],
+  "candidate_filter": {},
+  "theta": 1.5,
+  "parameters": {
+    "T_ref": 8,
+    "T_soft": 10,
+    "T_max": 12,
+    "lambda_ref": 1,
+    "lambda_soft": 2,
+    "lambda_max": 4,
+    "kappa": 20
+  },
+  "state": {
+    "origin": "depot",
+    "current": "depot",
+    "elapsed": 0,
+    "history": []
+  }
+}
